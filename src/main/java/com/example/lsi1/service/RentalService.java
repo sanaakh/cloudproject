@@ -20,8 +20,8 @@ public class RentalService {
         return cars;
     }
 
-    public void rent(String plateNumber){
-
+    public void rent(String plateNumber) throws CarNotFoundException {
+        throw new CarNotFoundException((plateNumber));
     }
 
 }

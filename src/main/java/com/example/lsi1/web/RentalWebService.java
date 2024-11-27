@@ -2,6 +2,7 @@ package com.example.lsi1.web;
 
 import com.example.lsi1.data.Car;
 import com.example.lsi1.data.Dates;
+import com.example.lsi1.service.CarNotFoundException;
 import com.example.lsi1.service.RentalService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,7 +32,7 @@ public class RentalWebService {
     public void rent(
             @PathVariable("plaque") String plateNumber,
             @RequestParam(value="rent", required = true)boolean rent,
-            @RequestBody Dates dates){
+            @RequestBody Dates dates) throws CarNotFoundException {
 
         logger.info("PlateNumber: " + plateNumber);
         logger.info("Rent: " + rent);
