@@ -14,6 +14,7 @@ public class RentalService {
     public RentalService(){
         cars.add( new Car("AA11BB", "Ferrari", 1000));
         cars.add( new Car("BB22CC", "Porsche", 2000));
+        cars.add( new Car("CC44DD", "Peugeot", 400));
     }
 
     public List<Car> getCars() {
