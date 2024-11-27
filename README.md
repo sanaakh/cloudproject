@@ -9,6 +9,7 @@ Logger: https://github.com/charroux/lsi1/blob/main/src/main/java/com/example/lsi
 ### Launch a workflow when the code is updated
 
 The script is there: https://github.com/charroux/lsi1/blob/main/.github/workflows/action.yml
+
 Create a new branch:
 ```
 git branch newcarservice
