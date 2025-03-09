@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myservice
+  name: mysecondservice
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: myservice
+      app: mysecondservice
   template:
     metadata:
       labels:
-        app: myservice
+        app: mysecondservice
     spec:
       containers:
-        - name: myservice
-          image: sanaa19/cloudproject:latest
-          imagePullPolicy: IfNotPresent
+        - name: mysecondservice
+          image: sanaa19/cloudprojectimage2:v1
+          imagePullPolicy: Always
           ports:
-            - containerPort: 8080 
+            - containerPort: 8080
       restartPolicy: Always
 
 ---
@@ -25,12 +25,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: myservice
+  name: mysecondservice
 spec:
   selector:
-    app: myservice
+    app: mysecondservice
   ports:
     - protocol: TCP
-      port: 8080  
-      targetPort: 8080  
+      port: 8081  
+      targetPort: 8080
   type: ClusterIP

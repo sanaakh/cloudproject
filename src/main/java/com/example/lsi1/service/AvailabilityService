@@ -1,0 +1,20 @@
+package com.example.lsi1.service;
+
+import com.example.lsi1.data.Car;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class AvailabilityService {
+
+    @Autowired
+    private RentalService rentalService;
+
+    public boolean isCarAvailable(String plateNumber) {
+        return rentalService.getCars().stream()
+                .filter(car -> car.getPlateNumber().equals(plateNumber))
+                .findFirst()
+                .map(car -> !car.isRented())
+                .orElse(false);
+    }
+}
